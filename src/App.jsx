@@ -1,4 +1,3 @@
-import Header from "./Files/Header"
 import Main from "./Files/Main";
 
 const App = () => {

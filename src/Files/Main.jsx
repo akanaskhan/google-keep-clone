@@ -297,7 +297,7 @@ const Main = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent pointer-events-none"></div>
 
       {/* Header section */}
-      <header className="w-full px-3 md:px-6 py-3 flex items-center justify-between text-white bg-[#202124]/80 backdrop-blur-sm border-b border-white/20 sticky top-0 z-10">
+      <header className="w-full px-3 md:px-6 py-3 flex items-center  text-white bg-[#202124]/80 backdrop-blur-sm border-b border-white/20 sticky top-0 z-10">
         <div className="flex items-center">
           {/* menu button */}
           <motion.button
@@ -320,7 +320,7 @@ const Main = () => {
               alt="logo"
               className="w-8 h-8 md:w-10 md:h-10 mr-2"
             />
-            <span className="font-custom text-lg md:text-xl hidden sm:block">
+            <span className="font-custom text-lg md:text-xl ">
               Keep
             </span>
           </motion.div>
@@ -334,19 +334,19 @@ const Main = () => {
               animate={{ opacity: 1, width: "50%" }}
               exit={{ opacity: 0, width: "0%" }}
               transition={{ duration: 0.3 }}
-              className="rounded-xl relative mx-2 flex-1 max-w-xl hidden md:block"
+              className="rounded-xl relative mx-auto px-2  flex-1 max-w-3xl hidden md:block"
             >
               <input
                 type="text"
                 placeholder="Search"
-                className="bg-[#525355] text-white text-[17px] outline-0 rounded-md py-2 pl-10 pr-8 w-full transition-all duration-300"
+                className="bg-[#525355] text-white text-xl outline-0 rounded-md py-3 pl-12 pr-8 w-full transition-all duration-300"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyDown={enterFunction}
               />
               {/* search icon */}
-              <div className="absolute top-0 left-0 py-2 px-3 rounded-full">
-                <MdSearch className="w-5 h-5" />
+              <div className="absolute top-0 left-0  translate-y-1/2 translate-x-1/2 rounded-full">
+                <MdSearch className="w-7 h-7" />
               </div>
               {/* close icon */}
               {search && (
@@ -363,7 +363,7 @@ const Main = () => {
         </AnimatePresence>
 
         {/* Mobile search button */}
-        <div className="flex items-center gap-3 md:gap-6">
+        <div className="flex items-center gap-3 md:gap-6 ms-auto">
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={toggleSearch}
@@ -598,7 +598,7 @@ const Main = () => {
             whileHover={{ boxShadow: "0 8px 30px rgba(0,0,0,0.3)", y: -2 }}
             transition={{ duration: 0.2 }}
             style={{ backgroundColor: selectedColor }}
-            className="border border-white/10 rounded-xl shadow-lg p-4 md:p-6 transition-all duration-200"
+            className="border border-white/10 rounded-xl shadow-lg p-3 md:p-6 transition-all duration-200"
           >
             {/* Input field for the title */}
             <input
@@ -663,22 +663,22 @@ const Main = () => {
 
             {/* Category Selection and Buttons Row */}
             <div className="flex justify-between items-center">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
                 {/* Category Dropdown */}
-                <div className="relative">
+                <div className="flex gap-1 items-center bg-[#525355] p-1 cursor-pointer rounded-md text-xs outline-none appearance-none ">
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="bg-[#525355] cursor-pointer text-white text-sm px-3 py-1.5 rounded-md outline-none appearance-none pr-8"
+                    className="outline-none appearance-none bg-[#525355] text-white   lg:text-sm lg:px-3 lg:py-1.5 rounded-md"
                   >
                     {categories.map((cat) => (
-                      <option key={cat} value={cat}>
+                      <option key={cat} value={cat} className="">
                         {cat}
                       </option>
                     ))}
                   </select>
-                  <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                    <FiTag className="text-white/70 w-4 h-4" />
+                  <div className="  pointer-events-none">
+                    <FiTag className="text-white/70 text-lg " />
                   </div>
                 </div>
 
@@ -691,7 +691,7 @@ const Main = () => {
                       whileTap={{ scale: 0.9 }}
                       onClick={() => handleColorChange(color)}
                       style={{ backgroundColor: color }}
-                      className={`w-5 h-5 rounded-full cursor-pointer transition-all ${
+                      className={`w-3 h-3 lg:w-5 lg:h-5 rounded-full cursor-pointer transition-all ${
                         selectedColor === color ? "ring-1 ring-white scale-125" : ""
                       }`}
                     />
@@ -700,7 +700,7 @@ const Main = () => {
               </div>
 
               {/* Media upload buttons and Save Button */}
-              <div className="flex items-center gap-2">
+              <div className="flex   items-center gap-2">
                 {/* Image upload button - direct */}
                 <label className="cursor-pointer">
                   <motion.div
@@ -708,7 +708,7 @@ const Main = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-[#525355] text-white p-1.5 rounded-md flex items-center justify-center"
                   >
-                    <MdImage className="w-5 h-5" />
+                    <MdImage className="w-3 h-3  md:w-5 md:h-5 lg:w-5 lg:h-5 xl:w-5 xl:h-5" />
                   </motion.div>
                   <input
                     type="file"
@@ -725,7 +725,7 @@ const Main = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-[#525355] text-white p-1.5 rounded-md flex items-center justify-center"
                   >
-                    <MdVideocam className="w-5 h-5" />
+                    <MdVideocam className="w-3 h-3 md:w-5 md:h-5 lg:w-5 lg:h-5 xl:w-5 xl:h-5" />
                   </motion.div>
                   <input
                     type="file"
@@ -740,9 +740,9 @@ const Main = () => {
                   whileHover={{ backgroundColor: "rgba(255,255,255,0.2)" }}
                   whileTap={{ scale: 0.95 }}
                   onClick={getData}
-                  className="bg-white/10 cursor-pointer text-white text-sm px-4 py-1.5 rounded-md transition-colors duration-200 flex items-center gap-2 ml-2"
+                  className="bg-white/10 cursor-pointer text-white text-sm px-2 py-1 lg:px-4 lg:py-1.5 rounded-md transition-colors duration-200 flex items-center gap-2 ml-0  lg:ml-2"
                 >
-                  <MdOutlineCloudDone className="w-4 h-4" />
+                  <MdOutlineCloudDone className="w-3 h-3 md:w-5 md:h-5 lg:w-5 lg:h-5 xl:w-5 xl:h-5" />
                   <span>Save</span>
                 </motion.button>
               </div>
